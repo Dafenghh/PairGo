@@ -15,6 +15,7 @@ public class HomePage extends AppCompatActivity {
 
     private TaskListFragment taskListFragment;
     private ChatListFragment chatListFragment;
+    private MyInfoFragment myInfoFragment;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
 
@@ -45,8 +46,13 @@ public class HomePage extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_notifications:
-                    Toast.makeText(HomePage.this, "This part has not been developed.", Toast.LENGTH_SHORT).show();
-                    return false;
+                    transaction = fragmentManager.beginTransaction();
+                    if (myInfoFragment == null) {
+                        myInfoFragment = new MyInfoFragment();
+                    }
+                    transaction.replace(R.id.frame_layout, myInfoFragment);
+                    transaction.commit();
+                    return true;
             }
             return false;
         }
