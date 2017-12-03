@@ -1,19 +1,30 @@
 package cn.edu.sysu.competition;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 /**
  * Created by Emilia on 2017/11/27.
  */
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
+public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
+
+    private static final String TAG = "TaskAdapter";
 
     private List<Task> mTaskList;
 
@@ -22,6 +33,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         TextView taskTitle;
         TextView taskDone;
         TextView taskProcess;
+        CircleImageView icon1;
+        CircleImageView icon2;
+        RelativeLayout icon_layout;
+        LinearLayout task_layout;
 
         public ViewHolder(View view) {
             super(view);
@@ -29,6 +44,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             taskTitle = (TextView) view.findViewById(R.id.task_title);
             taskDone = (TextView) view.findViewById(R.id.task_done);
             taskProcess = (TextView) view.findViewById(R.id.task_process);
+            icon1 = (CircleImageView) view.findViewById(R.id.profile_image1);
+            icon2 = (CircleImageView) view.findViewById(R.id.profile_image2);
+            icon_layout = (RelativeLayout) view.findViewById(R.id.icon_layout);
+            task_layout = (LinearLayout) view.findViewById(R.id.task_layout);
         }
     }
 
@@ -40,8 +59,31 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.task_item, parent, false);
+        WindowManager windowManager = (WindowManager)parent.getContext().getSystemService(Context.WINDOW_SERVICE);
+        int width = windowManager.getDefaultDisplay().getWidth();
+        view.setLayoutParams(new RecyclerView.LayoutParams(width, 250));
         final ViewHolder holder = new ViewHolder(view);
 
+        holder.icon_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Drawable temp1 = holder.icon1.getDrawable().getConstantState().newDrawable(),
+                        temp2 = holder.icon2.getDrawable().getConstantState().newDrawable();
+                holder.icon1.setImageDrawable(temp2);
+                holder.icon2.setImageDrawable(temp1);
+
+            }
+        });
+
+        holder.task_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = holder.getAdapterPosition();
+                Task task = mTaskList.get(position);
+                Intent intent = new Intent(view.getContext(), TaskDetail.class);
+                view.getContext().startActivity(intent);
+            }
+        });
         // onClick event here
 
         return holder;
@@ -52,12 +94,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         Task task = mTaskList.get(position);
         holder.taskTitle.setText(task.getContent());
         holder.taskDone.setText("已进行" + task.getDone() + "天");
-        holder.taskProcess.setText("完成度" + (task.getDone()
-        / task.getGoal()) + "%");
+        holder.taskProcess.setText("完成度" + ((task.getDone() * 100) / task.getGoal()) + "%");
+        holder.icon1.setImageResource(task.getIcon1());
+        holder.icon2.setImageResource(task.getIcon2());
     }
 
     @Override
     public int getItemCount() {
         return mTaskList.size();
     }
+
 }
