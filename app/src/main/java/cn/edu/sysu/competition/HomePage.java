@@ -14,6 +14,8 @@ import android.widget.Toast;
 public class HomePage extends AppCompatActivity {
 
     private TaskListFragment taskListFragment;
+    private ChatListFragment chatListFragment;
+    private MyInfoFragment myInfoFragment;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
 
@@ -25,17 +27,32 @@ public class HomePage extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    transaction = fragmentManager.beginTransaction();
                     if (taskListFragment == null) {
                         taskListFragment = new TaskListFragment();
                     }
                     transaction.replace(R.id.frame_layout, taskListFragment);
+                    transaction.commit();
+
                     return true;
+
                 case R.id.navigation_dashboard:
-                    Toast.makeText(HomePage.this, "This part has not been developed.", Toast.LENGTH_SHORT).show();
-                    return false;
+                    transaction = fragmentManager.beginTransaction();
+                    if (chatListFragment == null) {
+                        chatListFragment = new ChatListFragment();
+                    }
+                    transaction.replace(R.id.frame_layout, chatListFragment);
+                    transaction.commit();
+                    return true;
+
                 case R.id.navigation_notifications:
-                    Toast.makeText(HomePage.this, "This part has not been developed.", Toast.LENGTH_SHORT).show();
-                    return false;
+                    transaction = fragmentManager.beginTransaction();
+                    if (myInfoFragment == null) {
+                        myInfoFragment = new MyInfoFragment();
+                    }
+                    transaction.replace(R.id.frame_layout, myInfoFragment);
+                    transaction.commit();
+                    return true;
             }
             return false;
         }

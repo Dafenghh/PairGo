@@ -22,8 +22,7 @@
         <activity
             android:name=".TaskDetail"
             android:label="@string/title_activity_task_detail"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".CreateTask"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
