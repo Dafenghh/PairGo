@@ -1,74 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgimage2">
 
-    <android.support.v4.widget.Space
+    <View
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.8"/>
+        android:layout_height="match_parent"
+        android:background="#40ffffff"/>
 
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="登录"
-        android:gravity="center"
-        android:textSize="24pt"/>
+        android:layout_height="match_parent">
 
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1" />
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="0.8"/>
 
-    <EditText
-        android:id="@+id/c"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:hint="用户名"
-        android:inputType="textPersonName"
-        android:textColor="#fff" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登录"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="24pt"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="密码"
-        android:layout_gravity="center"
-        android:inputType="textPassword" />
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_weight="0.1" />
 
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1" />
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:hint="用户名"
+            android:inputType="textPersonName"
+            android:textColor="#000" />
 
-    <Button
-        android:id="@+id/login_do"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:background="@android:color/holo_green_light"
-        android:text="登录" />
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:hint="密码"
+            android:inputType="textPassword"
+            android:singleLine="false" />
 
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.05" />
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1" />
 
-    <Button
-        android:id="@+id/login_cancel"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:background="@android:color/holo_orange_light"
-        android:text="取消" />
+        <Button
+            android:id="@+id/login_do"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/green_button_shape"
+            android:text="登录" />
 
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.6" />
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.05" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/login_cancel"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_shape"
+            android:text="取消" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6" />
+    </LinearLayout>
+
+</FrameLayout>
