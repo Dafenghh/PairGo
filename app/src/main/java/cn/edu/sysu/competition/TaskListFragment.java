@@ -35,10 +35,8 @@ public class TaskListFragment extends Fragment implements View.OnClickListener{
         taskList.add(exampleTask1);
         taskList.add(exampleTask2);
         taskList.add(exampleTask2);
-        taskList.add(exampleTask2);
-        taskList.add(exampleTask2);
-        taskList.add(exampleTask2);
-        taskList.add(exampleTask2);
+
+
 
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.task_recycler);
         TaskAdapter adapter = new TaskAdapter(taskList);
@@ -55,7 +53,7 @@ public class TaskListFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.add_task_button:
-                Intent intent = new Intent(mContainer.getContext(), TaskDetail.class);
+                Intent intent = new Intent(mContainer.getContext(), CreateTask.class);
                 startActivity(intent);
                 break;
 

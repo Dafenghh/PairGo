@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/bgimage2" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#50ffffff" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:layout_weight="0.1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="101dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="任务名"
+                android:textColor="#000000"
+                android:textSize="10pt"
+                android:typeface="sans" />
+
+            <EditText
+                android:id="@+id/input_task_name"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:inputType="text|textPersonName"
+                android:textColor="#000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_set_start_date"
+                android:onClick="setStartDate"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="设定开始日期" />
+
+            <TextView
+                android:id="@+id/text_view_start_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_set_end_date"
+                android:onClick="setEndDate"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="设定结束日期" />
+
+            <TextView
+                android:id="@+id/text_view_end_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView" />
+        </LinearLayout>
+
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/button_set_invite_friends"
+
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="邀请" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6" />
+
+        <Button
+            android:id="@+id/button_bind"
+
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="绑定" />
+
+
+    </LinearLayout>
+
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/create_task_cancel"
+            android:layout_width="120dp"
+            android:onClick="createTaskCancel"
+            android:layout_height="50dp"
+            android:background="@drawable/green_button_shape"
+            android:text="取消" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6" />
+
+        <Button
+            android:id="@+id/create_task_do"
+            android:onClick="createTaskSubmit"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_shape"
+            android:text="确认" />
+    </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</FrameLayout>
