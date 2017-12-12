@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PairGo.iml" filepath="$PROJECT_DIR$/PairGo.iml" />
+      <module fileurl="file://C:\Users\43787\Desktop\git\新建文件夹\PairGo\PairGo.iml" filepath="C:\Users\43787\Desktop\git\新建文件夹\PairGo\PairGo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\43787\Desktop\git\新建文件夹\PairGo\app\app.iml" filepath="C:\Users\43787\Desktop\git\新建文件夹\PairGo\app\app.iml" />
     </modules>
   </component>
 </project>
