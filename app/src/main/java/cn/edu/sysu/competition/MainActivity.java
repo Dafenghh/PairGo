@@ -61,7 +61,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.sign_in:
                 viewPager.setCurrentItem(2, true);
                 break;
-            case R.id.login_cancel:case R.id.signin_cancel:
+            case R.id.login_cancel:
+                setLoginEmpty(view);
+                viewPager.setCurrentItem(1, true);
+                break;
+            case R.id.signin_cancel:
+                setSignInEmpty(view);
                 viewPager.setCurrentItem(1, true);
                 break;
             case R.id.login_do:
@@ -90,7 +95,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public String check1(View view) {
         String valid = "match";
-        View parent = (View) view.getParent();
+        Toast.makeText(MainActivity.this, valid, Toast.LENGTH_SHORT).show();
+        View parent = (View) view.getParent().getParent();
         String username, password;
         EditText userText = (EditText) parent.findViewById(R.id.username);
         EditText psdText = (EditText) parent.findViewById(R.id.password);
@@ -110,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public String check2(View view) {
         String valid = "valid";
-        View parent = (View) view.getParent();
+        View parent = (View) view.getParent().getParent();
         String username, mailbox, password, confirmpsd;
         EditText userText = (EditText) parent.findViewById(R.id.username);
         EditText mailText = (EditText) parent.findViewById(R.id.mailbox);
@@ -138,5 +144,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             return valid;
         }
+    }
+
+    public void setLoginEmpty(View view) {
+        View parent = (View) view.getParent().getParent();
+        EditText userText = (EditText) parent.findViewById(R.id.username);
+        EditText psdText = (EditText) parent.findViewById(R.id.password);
+        userText.setText("");
+        psdText.setText("");
+    }
+
+    public void setSignInEmpty(View view) {
+        View parent = (View) view.getParent().getParent();
+        EditText userText = (EditText) parent.findViewById(R.id.username);
+        EditText mailText = (EditText) parent.findViewById(R.id.mailbox);
+        EditText psdText = (EditText) parent.findViewById(R.id.password);
+        EditText confirmPsdText = (EditText) parent.findViewById(R.id.confirmPassword);
+        userText.setText("");
+        mailText.setText("");
+        psdText.setText("");
+        confirmPsdText.setText("");
     }
 }
