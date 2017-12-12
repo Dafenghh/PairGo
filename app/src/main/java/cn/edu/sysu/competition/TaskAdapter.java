@@ -71,7 +71,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
                         temp2 = holder.icon2.getDrawable().getConstantState().newDrawable();
                 holder.icon1.setImageDrawable(temp2);
                 holder.icon2.setImageDrawable(temp1);
-
             }
         });
 
