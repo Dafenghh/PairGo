@@ -29,9 +29,9 @@ public class TaskListFragment extends Fragment implements View.OnClickListener{
         View view =  LayoutInflater.from(container.getContext()).inflate(R.layout.task_list, container, false);
 
         taskList.clear();
-        Task exampleTask1 = new Task(0, R.drawable.example1, R.drawable.example2, false
+        Task exampleTask1 = new Task(0, R.drawable.example1, R.drawable.example2, true
         , "跑步","游泳", 1, 1, 2, 2);
-        Task exampleTask2 = new Task(0,R.drawable.example1, R.drawable.example2, false
+        Task exampleTask2 = new Task(0,R.drawable.example1, R.drawable.example2, true
                 ,"背单词","学JAVA", 17, 15, 36, 36);
         taskList.add(exampleTask1);
         taskList.add(exampleTask2);
