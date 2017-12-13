@@ -21,6 +21,7 @@ public class TaskListFragment extends Fragment implements View.OnClickListener{
 
     static private List<Task> taskList = new ArrayList<>();
     private ViewGroup mContainer;
+    private TaskAdapter adapter;
 
     @Nullable
     @Override
@@ -39,7 +40,7 @@ public class TaskListFragment extends Fragment implements View.OnClickListener{
 
 
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.task_recycler);
-        TaskAdapter adapter = new TaskAdapter(taskList);
+        adapter = new TaskAdapter(taskList);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
         recyclerView.setAdapter(adapter);
 
@@ -62,5 +63,11 @@ public class TaskListFragment extends Fragment implements View.OnClickListener{
 
     static public List<Task> getTaskList() {
         return taskList;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
     }
 }

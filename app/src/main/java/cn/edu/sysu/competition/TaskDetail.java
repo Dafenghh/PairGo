@@ -23,14 +23,14 @@ public class TaskDetail extends AppCompatActivity {
         matcher_button = findViewById(R.id.check_matcher_button);
         user_button = findViewById(R.id.check_user_button);
         setTaskInfo();
-        matcher_button.setOnClickListener(new View.OnClickListener() {
+        /*matcher_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (){
 
                 }
             }
-        });
+        });*/
 
     }
     private void setTaskInfo(){
