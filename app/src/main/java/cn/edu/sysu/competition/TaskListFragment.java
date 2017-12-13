@@ -30,14 +30,11 @@ public class TaskListFragment extends Fragment implements View.OnClickListener{
 
         taskList.clear();
         Task exampleTask1 = new Task(0, R.drawable.example1, R.drawable.example2, false
-        , "示例任务1", 1, 2);
+        , "跑步","游泳", 1, 1, 2, 2);
         Task exampleTask2 = new Task(0,R.drawable.example1, R.drawable.example2, false
-                , "示例任务2", 17, 64);
+                ,"背单词","学JAVA", 17, 15, 36, 36);
         taskList.add(exampleTask1);
         taskList.add(exampleTask2);
-        taskList.add(exampleTask2);
-
-
 
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.task_recycler);
         adapter = new TaskAdapter(taskList);
