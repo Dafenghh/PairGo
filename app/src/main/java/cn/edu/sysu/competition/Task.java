@@ -1,5 +1,6 @@
 package cn.edu.sysu.competition;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -16,6 +17,7 @@ public class Task {
     private int goal;
     private Date startDate;
     private Date endDate;
+    private int todayStatus; // 0:  未完成     1:待验证    2:已完成    3：不通过
 
     public Task(int taskID, int icon1, int icon2, boolean isStart,
                 String content, int done, int goal) {
@@ -26,6 +28,8 @@ public class Task {
         this.content = content;
         this.done = done;
         this.goal = goal;
+        startDate = new Date();
+        todayStatus = 0;
     }
 
     public Task(int taskID, int icon1, int icon2, boolean isStart,
@@ -40,6 +44,7 @@ public class Task {
         this.endDate = endDate;
         int diff = (int)(startDate.getTime() - endDate.getTime());//这样得到的差值是微秒级别
         this.goal = diff / (1000 * 60 * 60 * 24);
+        todayStatus = 0;
     }
 
     public int getTaskID() {
@@ -54,7 +59,7 @@ public class Task {
         return icon2;
     }
 
-    public boolean getStatu() {
+    public boolean getStatus() {
         return isStart;
     }
 
@@ -69,4 +74,19 @@ public class Task {
     public int getGoal() {
         return goal;
     }
+
+    public Date getStartDate(){
+        return startDate;
+    }
+    public String getStartDateToString(){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(startDate);
+    }
+    public int getTodayStatus(){
+        return todayStatus;
+    }
+    public void setTodayStatus(int newTodayStatus){
+        todayStatus = newTodayStatus;
+    }
 }
+
