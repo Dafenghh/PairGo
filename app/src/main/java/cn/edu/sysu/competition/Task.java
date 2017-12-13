@@ -1,7 +1,5 @@
 package cn.edu.sysu.competition;
 
-import android.support.annotation.Nullable;
-
 import java.util.Date;
 
 /**
@@ -28,7 +26,7 @@ public class Task {
                 int goal1) {
         this.taskID = taskID;
         this.icon1 = icon1;
-        this.icon2 = R.drawable.defaultIcon;
+        this.icon2 = R.drawable.defaulticon;
         this.isStart = isStart;
         this.content1 = content1;
         this.content2 = "Unset";
@@ -55,9 +53,8 @@ public class Task {
     }
 
     public Task(int taskID, int icon1, int icon2, boolean isStart,
-                String content, String content2,
+                String content1, String content2,
                 int done1, int done2,
-                int goal1, int goal2,
                 Date startDate, Date endDate) {
         this.taskID = taskID;
         this.icon1 = icon1;
