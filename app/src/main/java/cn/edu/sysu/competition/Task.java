@@ -39,7 +39,7 @@ public class Task {
         this.startDate = startDate;
         this.endDate = endDate;
         int diff = (int)(startDate.getTime() - endDate.getTime());//这样得到的差值是微秒级别
-        this.goal = diff / (1000 * 60 * 60 * 24);
+        this.goal = 1 + diff / (1000 * 60 * 60 * 24);
     }
 
     public int getTaskID() {
