@@ -50,8 +50,8 @@ public class CreateTask extends AppCompatActivity {
         String checkResult = checkTaskInfo();
         if (checkResult == "valid") {
             List<Task> taskList = TaskListFragment.getTaskList();
-            taskList.add(new Task(0,R.drawable.example1, R.drawable.example2, false
-                    , taskNameInput.getText().toString(), 0, calendar_1.getTime(), calendar_2.getTime()));
+            taskList.add(new Task(0,R.drawable.example1, R.drawable.defaulticon, false
+                    , taskNameInput.getText().toString(), "unset",0, 0, calendar_1.getTime(), calendar_2.getTime()));
             Toast.makeText(getApplicationContext(), String.valueOf(taskList.size()),
                     Toast.LENGTH_SHORT)
                     .show();
