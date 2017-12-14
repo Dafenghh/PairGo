@@ -37,6 +37,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
         CircleImageView icon2;
         RelativeLayout icon_layout;
         LinearLayout task_layout;
+        boolean isSelf;
+        boolean isStart;
+        int position;
 
         public ViewHolder(View view) {
             super(view);
@@ -48,6 +51,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
             icon2 = (CircleImageView) view.findViewById(R.id.profile_image2);
             icon_layout = (RelativeLayout) view.findViewById(R.id.icon_layout);
             task_layout = (LinearLayout) view.findViewById(R.id.task_layout);
+            isSelf = true;
         }
     }
 
@@ -67,10 +71,30 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
         holder.icon_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Drawable temp1 = holder.icon1.getDrawable().getConstantState().newDrawable(),
-                        temp2 = holder.icon2.getDrawable().getConstantState().newDrawable();
-                holder.icon1.setImageDrawable(temp2);
-                holder.icon2.setImageDrawable(temp1);
+                if (holder.isStart) {
+                    Drawable temp1 = holder.icon1.getDrawable().getConstantState().newDrawable(),
+                            temp2 = holder.icon2.getDrawable().getConstantState().newDrawable();
+                    holder.icon1.setImageDrawable(temp2);
+                    holder.icon2.setImageDrawable(temp1);
+                    int tempColor = holder.icon1.getBorderColor();
+                    holder.icon1.setBorderColor(holder.icon2.getBorderColor());
+                    holder.icon2.setBorderColor(tempColor);
+
+
+                    Task task = mTaskList.get(holder.position);
+
+                    if (holder.isSelf) {
+                        holder.taskTitle.setText(task.getContent(2));
+                        holder.taskDone.setText("已进行" + task.getDone(2) + "天");
+                        holder.taskProcess.setText("完成度" + ((task.getDone(2) * 100) / task.getGoal(2)) + "%");
+                    } else {
+                        holder.taskTitle.setText(task.getContent(1));
+                        holder.taskDone.setText("已进行" + task.getDone(1) + "天");
+                        holder.taskProcess.setText("完成度" + ((task.getDone(1) * 100) / task.getGoal(1)) + "%");
+                    }
+
+                    holder.isSelf = !holder.isSelf;
+                }
             }
         });
 
@@ -80,6 +104,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
                 int position = holder.getAdapterPosition();
                 Task task = mTaskList.get(position);
                 Intent intent = new Intent(view.getContext(), TaskDetail.class);
+                intent.putExtra("position", position);
                 view.getContext().startActivity(intent);
             }
         });
@@ -90,10 +115,12 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.position = position;
         Task task = mTaskList.get(position);
-        holder.taskTitle.setText(task.getContent());
-        holder.taskDone.setText("已进行" + task.getDone() + "天");
-        holder.taskProcess.setText("完成度" + ((task.getDone() * 100) / task.getGoal()) + "%");
+        holder.isStart = task.getStatu();
+        holder.taskTitle.setText(task.getContent(1));
+        holder.taskDone.setText("已进行" + task.getDone(1) + "天");
+        holder.taskProcess.setText("完成度" + ((task.getDone(1) * 100) / task.getGoal(1)) + "%");
         holder.icon1.setImageResource(task.getIcon1());
         holder.icon2.setImageResource(task.getIcon2());
     }

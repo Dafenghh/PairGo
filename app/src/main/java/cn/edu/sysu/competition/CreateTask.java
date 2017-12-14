@@ -50,8 +50,17 @@ public class CreateTask extends AppCompatActivity {
         String checkResult = checkTaskInfo();
         if (checkResult == "valid") {
             List<Task> taskList = TaskListFragment.getTaskList();
-            taskList.add(new Task(0,R.drawable.example1, R.drawable.example2, false
-                    , taskNameInput.getText().toString(), 0, calendar_1.getTime(), calendar_2.getTime()));
+            taskList.add(new Task(0,R.drawable.example1, R.drawable.example2, true
+                    , taskNameInput.getText().toString(),  0,calendar_1.getTime(), calendar_2.getTime()));
+
+            /*
+                public Task(int taskID, int icon1, int icon2, boolean isStart,
+                String content1, String content2,
+                int done1, int done2,
+                Date startDate, Date endDate)
+
+
+             */
             Toast.makeText(getApplicationContext(), "新建任务成功！",
                     Toast.LENGTH_SHORT)
                     .show();
