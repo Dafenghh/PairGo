@@ -1,56 +1,143 @@
 package cn.edu.sysu.competition;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 public class TaskDetail extends AppCompatActivity {
     Button matcher_button,user_button;
-    int matcher_task_id=0,user_task_id=1;
-    Task matcher_task,user_task;
+    Task user_task;
+    TextView matcher_task_task_name,matcher_task_start_time,matcher_task_goal_day;
+    TextView user_task_task_name,user_task_start_time,user_task_goal_day;
+    TextView user_today_status,matcher_today_status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
-        //Intent intent=this.getIntent();
-
+        Intent intent=this.getIntent();
+        int user_task_id = intent.getIntExtra("position",0);
         List<Task> taskList = TaskListFragment.getTaskList();
-        matcher_task = taskList.get(matcher_task_id);
         user_task = taskList.get(user_task_id);
         matcher_button = findViewById(R.id.check_matcher_button);
         user_button = findViewById(R.id.check_user_button);
         setTaskInfo();
-        /*matcher_button.setOnClickListener(new View.OnClickListener() {
+
+        matcher_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (){
+                if (matcher_today_status.getText().toString().equals("未完成")) {
+                    new AlertDialog.Builder(TaskDetail.this).setTitle("温馨提示").setMessage("系统已向TA发送提醒信息")
+                            .setPositiveButton("对话",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
+                        }
+                    }).setNegativeButton("返回", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    }).create().show();
+                }
+                if (matcher_today_status.getText().toString().equals("待验收")) {
+                    new AlertDialog.Builder(TaskDetail.this).setTitle("验收成果").setMessage("验证内容")
+                            .setPositiveButton("认可",new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            }).setNegativeButton("驳回", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    }).create().show();
+                }
+
+                if (matcher_today_status.getText().toString().equals("已通过")) {
+                    Toast.makeText(getApplicationContext(), "点赞成功，双方经验值+1", Toast.LENGTH_SHORT).show();
                 }
             }
-        });*/
+        });
+        user_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (matcher_today_status.getText().toString().equals("未完成")) {
+                    new AlertDialog.Builder(TaskDetail.this).setTitle("我的成果").setMessage("输入验证信息（图片+文字）")
+                            .setPositiveButton("提交", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    user_task.setTodayStatus(2,1);
+                                }
+                            }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
 
+                            }
+                    }).create().show();
+                }
+                if (matcher_today_status.getText().toString().equals("待验收")){
+                    Toast.makeText(getApplicationContext(), "已提醒对方验收您的成果", Toast.LENGTH_SHORT).show();
+                    user_task.setTodayStatus(2,1);
+                }
+                if (matcher_today_status.getText().toString().equals("已通过")) {
+                    new AlertDialog.Builder(TaskDetail.this).setTitle("分享今日成果").
+                            setMessage(user_task.getContent(1)+"任务已进行坚持了"+Integer.toString(user_task.getGoal()))
+                            .setPositiveButton("分享", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    }).create().show();
+                }
+                if (matcher_today_status.getText().toString().equals("未通过")){
+                    new AlertDialog.Builder(TaskDetail.this).setTitle("我的成果").setMessage("输入验证信息（图片+文字）")
+                            .setPositiveButton("提交", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    user_task.setTodayStatus(2,1);
+                                }
+                            }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    }).create().show();
+                }
+            }
+        });
     }
     private void setTaskInfo(){
-        TextView matcher_task_task_name= findViewById(R.id.matcher_info).findViewById(R.id.detail_task_task_name);
-        TextView matcher_task_start_time = findViewById(R.id.matcher_info).findViewById(R.id.detail_task_start_time);
-        TextView matcher_task_goal_day =  findViewById(R.id.matcher_info).findViewById(R.id.detail_task_goal_day);
-        TextView user_task_task_name= findViewById(R.id.user_info).findViewById(R.id.detail_task_task_name);
-        TextView user_task_start_time =  findViewById(R.id.user_info).findViewById(R.id.detail_task_start_time);
-        TextView user_task_goal_day =  findViewById(R.id.user_info).findViewById(R.id.detail_task_goal_day);
+        matcher_task_task_name= findViewById(R.id.matcher_info).findViewById(R.id.detail_task_task_name);
+        matcher_task_start_time = findViewById(R.id.matcher_info).findViewById(R.id.detail_task_start_time);
+        matcher_task_goal_day =  findViewById(R.id.matcher_info).findViewById(R.id.detail_task_goal_day);
+        user_task_task_name= findViewById(R.id.user_info).findViewById(R.id.detail_task_task_name);
+        user_task_start_time =  findViewById(R.id.user_info).findViewById(R.id.detail_task_start_time);
+        user_task_goal_day =  findViewById(R.id.user_info).findViewById(R.id.detail_task_goal_day);
 
-        matcher_task_task_name.setText(matcher_task.getContent());
-        matcher_task_start_time.setText(matcher_task.getStartDateToString());
-        matcher_task_goal_day.setText(Integer.toString(matcher_task.getGoal()));
+        matcher_task_task_name.setText(user_task.getContent(2));
+        matcher_task_start_time.setText(user_task.getStartDateToString(2));
+        matcher_task_goal_day.setText(Integer.toString(user_task.getGoal(2)));
 
-        user_task_task_name.setText(user_task.getContent());
-        user_task_start_time.setText(user_task.getStartDateToString());
-        user_task_goal_day.setText(Integer.toString(user_task.getGoal()));
+        user_task_task_name.setText(user_task.getContent(1));
+        user_task_start_time.setText(user_task.getStartDateToString(1));
+        user_task_goal_day.setText(Integer.toString(user_task.getGoal(1)));
 
-        TextView matcher_today_status = findViewById(R.id.matcher_today_status);
-        switch (matcher_task.getTodayStatus()){
+        matcher_today_status = findViewById(R.id.matcher_today_status);
+        switch (user_task.getTodayStatus(2)){
             case 0:
                 matcher_today_status.setText("未完成");
                 matcher_button.setText("温馨提醒");
@@ -61,16 +148,12 @@ public class TaskDetail extends AppCompatActivity {
                 break;
             case 2:
                 matcher_today_status.setText("已完成");
-                matcher_button.setText("为你点赞");
-                break;
-            case 3:
-                matcher_today_status.setText("不通过");
-                matcher_button.setText("温馨提醒");
+                matcher_button.setText(new String("为TA点赞"));
                 break;
         }
 
-        TextView user_today_status = findViewById(R.id.user_today_status);
-        switch (matcher_task.getTodayStatus()){
+        user_today_status = findViewById(R.id.user_today_status);
+        switch (user_task.getTodayStatus(1)){
             case 0:
                 user_today_status.setText("未完成");
                 user_button.setText("提交成果");
