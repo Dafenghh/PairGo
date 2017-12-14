@@ -117,7 +117,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.position = position;
         Task task = mTaskList.get(position);
-        holder.isStart = task.getStatu();
+        holder.isStart = task.getStatus();
         holder.taskTitle.setText(task.getContent(1));
         holder.taskDone.setText("已进行" + task.getDone(1) + "天");
         holder.taskProcess.setText("完成度" + ((task.getDone(1) * 100) / task.getGoal(1)) + "%");
