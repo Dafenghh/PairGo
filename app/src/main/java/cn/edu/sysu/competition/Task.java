@@ -38,6 +38,22 @@ public class Task {
         this.goal2 = 0;
     }
 
+    public Task(int taskID, int icon1, boolean isStart,
+                String content1,
+                int done1,
+                int goal1) {
+        this.taskID = taskID;
+        this.icon1 = icon1;
+        this.icon2 = R.drawable.defaulticon;
+        this.isStart = isStart;
+        this.content1 = content1;
+        this.content2 = "Unset";
+        this.done1 = done1;
+        this.done2 = 0;
+        this.goal1 = goal1;
+        this.goal2 = 0;
+    }
+
     public Task(int taskID, int icon1, int icon2, boolean isStart,
                 String content1, String content2,
                 int done1, int done2,
