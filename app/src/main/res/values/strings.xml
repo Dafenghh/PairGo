@@ -5,6 +5,13 @@
     <string name="title_dashboard">聊天</string>
     <string name="title_notifications">我</string>
     <string name="title_activity_task_detail">TaskDetail</string>
+    <string name="login">登录</string>
+    <string name="cancel">取消</string>
+    <string name="signin">注册</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="confirmPsd">确认密码</string>
+    <string name="mailbox">邮箱</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
