@@ -78,8 +78,23 @@ public class Task {
         this.endDate = endDate;
         int diff = (int)(startDate.getTime() - endDate.getTime());//这样得到的差值是微秒级别
         this.goal1 = 1 + diff / (1000 * 60 * 60 * 24);
+<<<<<<< HEAD
         todayStatus1 = 0;
         todayStatus2 = 0;
+=======
+        todayStatus = 0;
+    }
+
+    public Task(int taskID, int icon1, int icon2, boolean isStart,
+                String content1, int done1, int goal1) {
+        this.taskID = taskID;
+        this.icon1 = icon1;
+        this.icon2 = icon2;
+        this.isStart = isStart;
+        this.content1 = content1;
+        this.done1 = done1;
+        this.goal1 = goal1;
+>>>>>>> origin/master
     }
 
     public Task(int taskID, int icon1, int icon2, boolean isStart,
