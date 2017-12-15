@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#fcf8ea">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/task_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="1dp"/>
+        android:layout_marginTop="1dp"
+        android:background="#fcf8ea"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/add_task_button"
@@ -21,14 +23,23 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         app:backgroundTint="@android:color/holo_orange_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/task_recycler"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/task_recycler"
         app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="@+id/task_recycler"
-        app:layout_constraintTop_toTopOf="@+id/task_recycler"
-        app:layout_constraintVertical_bias="0.985"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/no_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:autoLink="all"
+        android:text="没有更多任务"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/task_recycler" />
 
 </android.support.constraint.ConstraintLayout>
