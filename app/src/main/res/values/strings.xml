@@ -5,6 +5,8 @@
     <string name="title_dashboard">聊天</string>
     <string name="title_notifications">我</string>
     <string name="title_activity_task_detail">TaskDetail</string>
+    <string name="today_status">今日状态</string>
+    <string name="task_comparation">任务对比</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
