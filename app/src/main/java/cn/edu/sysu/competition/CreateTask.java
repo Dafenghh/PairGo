@@ -50,9 +50,18 @@ public class CreateTask extends AppCompatActivity {
         String checkResult = checkTaskInfo();
         if (checkResult == "valid") {
             List<Task> taskList = TaskListFragment.getTaskList();
-            taskList.add(new Task(0,R.drawable.example1, R.drawable.defaulticon, false
-                    , taskNameInput.getText().toString(), "unset",0, 0, calendar_1.getTime(), calendar_2.getTime()));
-            Toast.makeText(getApplicationContext(), String.valueOf(taskList.size()),
+            taskList.add(new Task(0,R.drawable.example1, R.drawable.example2, true
+                    , taskNameInput.getText().toString(),  0,calendar_1.getTime(), calendar_2.getTime()));
+
+            /*
+                public Task(int taskID, int icon1, int icon2, boolean isStart,
+                String content1, String content2,
+                int done1, int done2,
+                Date startDate, Date endDate)
+
+
+             */
+            Toast.makeText(getApplicationContext(), "新建任务成功！",
                     Toast.LENGTH_SHORT)
                     .show();
             finish();
@@ -66,9 +75,9 @@ public class CreateTask extends AppCompatActivity {
     }
 
     private String checkTaskInfo() {
-        if (taskNameInput.getText().toString().isEmpty()) return "用户名为空！";
+        if (taskNameInput.getText().toString().isEmpty()) return "任务名为空！";
         Calendar calendar_3 = Calendar.getInstance(); // current time
-        if (calendar_1.before(calendar_3)) return "开始日期早于今天";
+        if (calendar_1.before(calendar_3) && (calendar_3.getTimeInMillis()-calendar_1.getTimeInMillis()) > 1000 * 3600 * 24) return "开始日期早于今天";
         if (calendar_2.before(calendar_1)) return "结束日期早于开始日期";
         return "valid";
     }

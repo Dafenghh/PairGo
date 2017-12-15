@@ -5,4 +5,5 @@
     <color name="colorAccent">#ff4081</color>
     <color name="title">#76b2b0</color>
     <color name="title_text">#ffffff</color>
+    <color name="transparent">#00000000</color>
 </resources>

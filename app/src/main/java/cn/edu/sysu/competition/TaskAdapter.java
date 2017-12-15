@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 
 import java.util.List;
 
@@ -117,7 +115,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.position = position;
         Task task = mTaskList.get(position);
-        holder.isStart = task.getStatu();
+        holder.isStart = task.getStatus();
         holder.taskTitle.setText(task.getContent(1));
         holder.taskDone.setText("已进行" + task.getDone(1) + "天");
         holder.taskProcess.setText("完成度" + ((task.getDone(1) * 100) / task.getGoal(1)) + "%");
