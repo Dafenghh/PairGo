@@ -188,8 +188,10 @@ public class Task {
         switch (which) {
             case 1:
                 todayStatus1 = newTodayStatus;
+                break;
             case 2:
                 todayStatus2 = newTodayStatus;
+                break;
             default:
                 todayStatus1 = newTodayStatus;
         }
