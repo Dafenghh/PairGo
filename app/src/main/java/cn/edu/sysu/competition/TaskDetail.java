@@ -42,7 +42,7 @@ public class TaskDetail extends AppCompatActivity {
                             .setPositiveButton("对话",new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            
+
                         }
                     }).setNegativeButton("返回", new DialogInterface.OnClickListener() {
                         @Override
@@ -153,7 +153,7 @@ public class TaskDetail extends AppCompatActivity {
                 setMatcherUnfinished();
                 break;
             case 1:
-                setMatcherWait();t
+                setMatcherWait();
                 break;
             case 2:
                 setMatcherFinished();
