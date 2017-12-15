@@ -2,6 +2,7 @@ package cn.edu.sysu.competition;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Emilia on 2017/11/27.
@@ -18,9 +19,11 @@ public class Task {
     private int done2;
     private int goal1;
     private int goal2;
-    private Date startDate;
+    private Date startDate1;
+    private Date startDate2;
     private Date endDate;
-    private int todayStatus; // 0:  未完成     1:待验证    2:已完成    3：不通过
+    private int todayStatus1; // 0:  未完成     1:待验证    2:已完成    3：不通过
+    private int todayStatus2;
 
     public Task(int taskID, int icon1, boolean isStart,
                 String content1,
@@ -53,7 +56,10 @@ public class Task {
         this.done2 = done2;
         this.goal1 = goal1;
         this.goal2 = goal2;
-        todayStatus = 0;
+        startDate1 = new Date();
+        startDate2 = startDate1;
+        todayStatus1 = 0;
+        todayStatus2 = 0;
     }
 
     public Task(int taskID, int icon1, int icon2, boolean isStart,
@@ -68,22 +74,12 @@ public class Task {
         this.content2 = content2;
         this.done1 = done1;
         this.done2 = done2;
-        this.startDate = startDate;
+        this.startDate1 = startDate;
         this.endDate = endDate;
         int diff = (int)(startDate.getTime() - endDate.getTime());//这样得到的差值是微秒级别
         this.goal1 = 1 + diff / (1000 * 60 * 60 * 24);
-        todayStatus = 0;
-    }
-
-    public Task(int taskID, int icon1, int icon2, boolean isStart,
-                String content1, int done1, int goal1) {
-        this.taskID = taskID;
-        this.icon1 = icon1;
-        this.icon2 = icon2;
-        this.isStart = isStart;
-        this.content1 = content1;
-        this.done1 = done1;
-        this.goal1 = goal1;
+        todayStatus1 = 0;
+        todayStatus2 = 0;
     }
 
     public Task(int taskID, int icon1, int icon2, boolean isStart,
@@ -94,10 +90,12 @@ public class Task {
         this.isStart = isStart;
         this.content1 = content1;
         this.done1 = done1;
-        this.startDate = startDate;
+        this.startDate1 = startDate;
         this.endDate = endDate;
         int diff = (int) (startDate.getTime() - endDate.getTime());//这样得到的差值是微秒级别
         this.goal1 = 1 + diff / (1000 * 60 * 60 * 24);
+        todayStatus1 = 0;
+        todayStatus2 = 0;
     }
 
 
@@ -162,18 +160,41 @@ public class Task {
         return goal1;
     }
 
-    public Date getStartDate(){
-        return startDate;
+    public Date getStartDate(int which){
+        switch (which) {
+            case 1:
+                return startDate1;
+            case 2:
+                return startDate2;
+            default:
+                return startDate1;
+        }
     }
-    public String getStartDateToString(){
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(startDate);
+    public String getStartDateToString(int which){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+        return sdf.format(getStartDate(which));
     }
-    public int getTodayStatus(){
-        return todayStatus;
+    public int getTodayStatus(int which){
+        switch (which) {
+            case 1:
+                return todayStatus1;
+            case 2:
+                return todayStatus2;
+            default:
+                return todayStatus1;
+        }
     }
-    public void setTodayStatus(int newTodayStatus){
-        todayStatus = newTodayStatus;
+    public void setTodayStatus(int newTodayStatus,int which){
+        switch (which) {
+            case 1:
+                todayStatus1 = newTodayStatus;
+                break;
+            case 2:
+                todayStatus2 = newTodayStatus;
+                break;
+            default:
+                todayStatus1 = newTodayStatus;
+        }
     }
 }
 

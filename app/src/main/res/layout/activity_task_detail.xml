@@ -30,8 +30,9 @@
             layout="@layout/detail_task_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginLeft="10dp" />
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
 
@@ -42,27 +43,29 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
+            android:layout_gravity="start|center_vertical"
             android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:gravity="center"
-            android:textSize="20dp"
-            android:text="今日状态："/>
+            android:textSize="20sp"
+            android:text="@string/today_status"/>
         <TextView
             android:id="@+id/matcher_today_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:width="70dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_gravity="left|center_vertical"
             android:gravity="center"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:text="未完成"/>
         <Button
             android:id="@+id/check_matcher_button"
             android:width="50dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="操作" />
@@ -89,8 +92,8 @@
             android:text="任务对比"
             android:textSize="30dp" />
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/mLineChar"
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:id="@+id/mHorizontalBarChart"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"/>
@@ -135,8 +138,9 @@
             android:id="@+id/user_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
-            android:layout_marginLeft="10dp"/>
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"/>
 
     </LinearLayout>
 
@@ -147,27 +151,28 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
+            android:layout_gravity="start|center_vertical"
             android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:gravity="center"
-            android:textSize="20dp"
-            android:text="今日状态："/>
+            android:textSize="20sp"
+            android:text="@string/today_status"/>
         <TextView
             android:id="@+id/user_today_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:width="70dp"
             android:layout_marginLeft="10dp"
-            android:layout_gravity="left|center_vertical"
+            android:layout_gravity="start|center_vertical"
             android:gravity="center"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:text="未完成"/>
         <Button
             android:id="@+id/check_user_button"
             android:width="50dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="操作" />
