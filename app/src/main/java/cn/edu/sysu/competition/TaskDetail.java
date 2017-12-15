@@ -12,9 +12,12 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class TaskDetail extends AppCompatActivity {
     Button matcher_button,user_button;
     Task user_task;
+    CircleImageView matcher_icon,user_icon;
     TextView matcher_task_task_name,matcher_task_start_time,matcher_task_goal_day;
     TextView user_task_task_name,user_task_start_time,user_task_goal_day;
     TextView user_today_status,matcher_today_status;
@@ -55,10 +58,11 @@ public class TaskDetail extends AppCompatActivity {
 
                                 }
                             }).setNegativeButton("驳回", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    matcher_today_status.setText("未完成");
+                                    matcher_button.setText("温馨提醒");
+                                }
                     }).create().show();
                 }
 
@@ -75,7 +79,9 @@ public class TaskDetail extends AppCompatActivity {
                             .setPositiveButton("提交", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    user_task.setTodayStatus(2,1);
+                                    user_task.setTodayStatus(1,1);
+                                    user_today_status.setText("待验收");
+                                    user_button.setText("提醒验收");
                                 }
                             }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
                                 @Override
@@ -108,7 +114,9 @@ public class TaskDetail extends AppCompatActivity {
                             .setPositiveButton("提交", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    user_task.setTodayStatus(2,1);
+                                    user_task.setTodayStatus(1,1);
+                                    user_today_status.setText("待验收");
+                                    user_button.setText("提醒验收");
                                 }
                             }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
                         @Override
@@ -121,17 +129,21 @@ public class TaskDetail extends AppCompatActivity {
         });
     }
     private void setTaskInfo(){
+        matcher_icon = findViewById(R.id.matcher_icon);
         matcher_task_task_name= findViewById(R.id.matcher_info).findViewById(R.id.detail_task_task_name);
         matcher_task_start_time = findViewById(R.id.matcher_info).findViewById(R.id.detail_task_start_time);
         matcher_task_goal_day =  findViewById(R.id.matcher_info).findViewById(R.id.detail_task_goal_day);
+        user_icon = findViewById(R.id.user_icon);
         user_task_task_name= findViewById(R.id.user_info).findViewById(R.id.detail_task_task_name);
         user_task_start_time =  findViewById(R.id.user_info).findViewById(R.id.detail_task_start_time);
         user_task_goal_day =  findViewById(R.id.user_info).findViewById(R.id.detail_task_goal_day);
 
+        matcher_icon.setImageResource(user_task.getIcon2());
         matcher_task_task_name.setText(user_task.getContent(2));
         matcher_task_start_time.setText(user_task.getStartDateToString(2));
         matcher_task_goal_day.setText(Integer.toString(user_task.getGoal(2)));
 
+        user_icon.setImageResource(user_task.getIcon2());
         user_task_task_name.setText(user_task.getContent(1));
         user_task_start_time.setText(user_task.getStartDateToString(1));
         user_task_goal_day.setText(Integer.toString(user_task.getGoal(1)));
