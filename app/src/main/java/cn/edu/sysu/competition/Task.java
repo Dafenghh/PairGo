@@ -24,7 +24,8 @@ public class Task {
     private Date endDate;
     private int todayStatus1; // 0:  未完成     1:待验证    2:已完成    3：不通过
     private int todayStatus2;
-
+    static private String[] virtual_content2 = new String[]{"完成一套训练题","练字20分钟","复习高数","睡午觉"};
+    static private int count_content2 = 0;
     public Task(int taskID, int icon1, boolean isStart,
                 String content1,
                 int done1,
@@ -91,12 +92,15 @@ public class Task {
         this.content1 = content1;
         this.done1 = done1;
         this.startDate1 = startDate;
+        startDate2 = new Date();
         this.endDate = endDate;
         int diff = (int) (endDate.getTime() - startDate.getTime());//这样得到的差值是微秒级别
         this.goal1 = 1 + diff / (1000 * 60 * 60 * 24);
         todayStatus1 = 0;
         todayStatus2 = 0;
-
+        content2 = virtual_content2[count_content2];
+        ++count_content2;
+        count_content2 %= 4;
     }
 
 
