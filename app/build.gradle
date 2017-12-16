@@ -31,4 +31,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.2.0'
     //MPAndroidChart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
 }

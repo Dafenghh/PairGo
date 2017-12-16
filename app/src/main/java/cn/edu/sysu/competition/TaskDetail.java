@@ -98,7 +98,7 @@ public class TaskDetail extends AppCompatActivity {
                 }
                 if (user_today_status.getText().toString().equals("已完成")) {
                     new AlertDialog.Builder(TaskDetail.this).setTitle("分享今日成果").
-                            setMessage(user_task.getContent(1)+"任务已进行坚持了"+Integer.toString(user_task.getGoal()))
+                            setMessage(user_task.getContent(1)+"任务已进行坚持了"+Integer.toString(user_task.getGoal())+"天")
                             .setPositiveButton("分享", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
