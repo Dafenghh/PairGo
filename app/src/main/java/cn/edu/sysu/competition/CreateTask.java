@@ -27,19 +27,25 @@ public class CreateTask extends AppCompatActivity {
         endDateView = (TextView) findViewById(R.id.text_view_end_date);
         calendar_1 = Calendar.getInstance();
         calendar_2 = Calendar.getInstance();
-        showDate(startDateView, calendar_1.get(Calendar.YEAR),
+       /* showDate(startDateView, calendar_1.get(Calendar.YEAR),
                 calendar_1.get(Calendar.MONTH),calendar_1.get(Calendar.DAY_OF_MONTH));
         showDate(endDateView, calendar_2.get(Calendar.YEAR),
-                calendar_2.get(Calendar.MONTH),calendar_2.get(Calendar.DAY_OF_MONTH));
+                calendar_2.get(Calendar.MONTH),calendar_2.get(Calendar.DAY_OF_MONTH));*/
 
     }
 
     @SuppressWarnings("deprecation")
     public void setStartDate(View view) {
+        Toast.makeText(getApplicationContext(), "设置开始日期",
+                Toast.LENGTH_SHORT)
+                .show();
         showDialog(999);
     }
 
     public void setEndDate(View view) {
+        Toast.makeText(getApplicationContext(), "设置结束日期",
+                Toast.LENGTH_SHORT)
+                .show();
         showDialog(998);
     }
 
@@ -127,7 +133,7 @@ public class CreateTask extends AppCompatActivity {
             };
 
     private void showDate(TextView dateView, int year, int month, int day) {
-        dateView.setText(new StringBuilder().append(year).append("/")
-                .append(month+1).append("/").append(day));
+        dateView.setText(new StringBuilder().append(" ").append(year).append(" 年 ")
+                .append(month+1).append(" 月 ").append(day).append(" 日"));
     }
 }
