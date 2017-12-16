@@ -30,9 +30,9 @@ public class TaskListFragment extends Fragment implements View.OnClickListener{
 
         taskList.clear();
         Task exampleTask1 = new Task(0, R.drawable.example1, R.drawable.example2, true
-        , "跑步","游泳", 5, 16, 14, 20);
-        Task exampleTask2 = new Task(0,R.drawable.example1, R.drawable.example3, true
-                ,"背单词","学JAVA", 17, 15, 36, 36);
+        , "跑步","游泳", 5, 10, 14, 30);
+        Task exampleTask2 = new Task(1,R.drawable.example1, R.drawable.example3, true
+                ,"背单词","学JAVA", 11, 15, 36, 36);
         taskList.add(exampleTask1);
         taskList.add(exampleTask2);
 

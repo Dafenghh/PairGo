@@ -2,16 +2,16 @@ package cn.edu.sysu.competition;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.*;
+import java.util.Calendar;
+import java.util.List;
 
 public class CreateTask extends AppCompatActivity {
     private DatePicker datePicker;
@@ -50,7 +50,7 @@ public class CreateTask extends AppCompatActivity {
         String checkResult = checkTaskInfo();
         if (checkResult == "valid") {
             List<Task> taskList = TaskListFragment.getTaskList();
-            taskList.add(new Task(0,R.drawable.example1, R.drawable.example2, true
+            taskList.add(new Task(2,R.drawable.example1, R.drawable.example2, true
                     , taskNameInput.getText().toString(),  0,calendar_1.getTime(), calendar_2.getTime()));
 
             /*
