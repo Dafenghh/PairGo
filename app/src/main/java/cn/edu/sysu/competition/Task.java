@@ -25,6 +25,7 @@ public class Task {
     private int todayStatus1; // 0:  未完成     1:待验证    2:已完成    3：不通过
     private int todayStatus2;
     static private String[] virtual_content2 = new String[]{"完成一套训练题","练字20分钟","复习高数","睡午觉"};
+    static private int[] virtual_goal2 = new int[]{14,30,7,20};
     static private int count_content2 = 0;
     public Task(int taskID, int icon1, boolean isStart,
                 String content1,
@@ -99,6 +100,7 @@ public class Task {
         todayStatus1 = 0;
         todayStatus2 = 0;
         content2 = virtual_content2[count_content2];
+        goal2 = virtual_goal2[count_content2];
         ++count_content2;
         count_content2 %= 4;
     }
@@ -195,12 +197,15 @@ public class Task {
         switch (which) {
             case 1:
                 todayStatus1 = newTodayStatus;
+                if (newTodayStatus == 2) ++done1;
                 break;
             case 2:
                 todayStatus2 = newTodayStatus;
+                if (newTodayStatus == 2) ++done2;
                 break;
             default:
                 todayStatus1 = newTodayStatus;
+                if (newTodayStatus == 2) ++done1;
         }
     }
 }
