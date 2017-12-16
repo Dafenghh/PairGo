@@ -21,6 +21,8 @@ public class TaskDetail extends AppCompatActivity {
     TextView matcher_task_task_name,matcher_task_start_time,matcher_task_goal_day;
     TextView user_task_task_name,user_task_start_time,user_task_goal_day;
     TextView user_today_status,matcher_today_status;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -172,6 +174,18 @@ public class TaskDetail extends AppCompatActivity {
                 break;
             case 3:
                 setUserUnpassed();
+        }
+
+        View comparision = findViewById(R.id.comparison_task);
+        switch (user_task.getTaskID()){
+            case 0:
+                comparision.setBackgroundResource(R.drawable.comparison0);
+                break;
+            case 1:
+                comparision.setBackgroundResource(R.drawable.comparison1);
+                break;
+            default:
+                comparision.setBackgroundResource(R.drawable.comparison_empty);
         }
     }
     private void setMatcherUnfinished(){

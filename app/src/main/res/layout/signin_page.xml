@@ -6,10 +6,6 @@
 
     android:background="@drawable/signup" >
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#50ffffff" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -127,6 +123,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:background="@drawable/green_button_shape"
+                android:layout_marginRight="30dp"
             android:text="注册"
             android:textColor="#76b2b0"/>
         </LinearLayout>
@@ -152,6 +149,7 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/button_shape"
+                android:layout_marginRight="30dp"
                 android:text="取消"
                 android:textColor="#76b2b0"/>
         </LinearLayout>

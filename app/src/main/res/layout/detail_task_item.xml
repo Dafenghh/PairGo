@@ -10,50 +10,58 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="left">
+        android:gravity="start"
+        android:layout_marginTop="8dp">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="160dp"
+            android:gravity="start|center_vertical"
             android:layout_weight="1"
             android:text="任务名称"
-            android:textSize="8pt" />
+            android:textSize="18dp"
+            android:textColor="#363636"/>
 
         <TextView
             android:id="@+id/detail_task_task_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:text="任务详情"
-            android:textSize="7pt"/>
+            android:textSize="14dp"
+            android:textColor="#363636"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="left"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp">
+        android:gravity="start"
+        android:layout_marginTop="5dp">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="160dp"
+            android:gravity="start|center_vertical"
             android:layout_weight="1"
             android:text="开始时间"
-            android:textSize="8pt"/>
+            android:textSize="18dp"
+            android:textColor="#363636"/>
 
         <TextView
             android:id="@+id/detail_task_start_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"
             android:text="yyyy-mm-dd"
-            android:textSize="7pt"/>
+            android:textSize="14dp"
+            android:textColor="#363636"/>
 
 
     </LinearLayout>
@@ -62,24 +70,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="left">
+        android:gravity="start"
+        android:layout_marginTop="5dp">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="160dp"
+            android:gravity="start|center_vertical"
             android:layout_weight="1"
             android:text="目标天数"
-            android:textSize="8pt"/>
+            android:textSize="18dp"
+            android:textColor="#363636"/>
 
         <TextView
             android:id="@+id/detail_task_goal_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:text="xxx"
-            android:textSize="7pt"/>
+            android:textSize="14dp"
+            android:textColor="#363636"/>
 
 
     </LinearLayout>
