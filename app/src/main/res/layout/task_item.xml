@@ -2,91 +2,116 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
+
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:layout_marginBottom="3dp">
+    android:layout_height="104dp"
+    android:layout_marginBottom="3dp"
+    android:background="#fcf8ea"
+    >
 
-
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="96dp">
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/icon_layout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="3"
-        android:background="@drawable/border">
+        android:background="#fceec7">
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image2"
             android:layout_width="70dp"
-            android:layout_height="90dp"
+            android:layout_height="70dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
             android:src="@drawable/example1"
-            app:civ_border_color="#83e68c"
-            app:civ_border_width="3dp" />
+            app:civ_border_color="@android:color/black"
+            app:civ_border_width="0.1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image1"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:src="@drawable/example1"
-            app:civ_border_color="#ff8cb3"
-            app:civ_border_width="3dp" />
+            app:civ_border_color="@android:color/black"
+            app:civ_border_width="0.1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/task_layout"
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="5">
+        android:layout_weight="5"
+        android:background="#fceec7">
 
         <TextView
             android:id="@+id/task_title"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:background="#fceec7"
             android:gravity="center"
             android:text="任务名缺失"
+            android:textColor="#363636"
             android:textSize="10pt"
-            android:background="@drawable/border"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+        <TextView
+            android:id="@+id/task_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:background="#fceec7"
+            android:gravity="center"
+            android:text="完成天数"
+            android:textColor="#99927e"
+            android:textSize="6pt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_title" />
 
-            <TextView
-                android:id="@+id/task_done"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="完成天数"
-                android:textSize="8pt"
-                android:background="@drawable/border"/>
+        <TextView
+            android:id="@+id/task_process"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:background="#fceec7"
+            android:gravity="center"
+            android:text="完成度"
+            android:textColor="#99927e"
+            android:textSize="6pt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_done" />
 
-            <TextView
-                android:id="@+id/task_process"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="完成度"
-                android:textSize="8pt"
-                android:background="@drawable/border"/>
-
-        </LinearLayout>
-
+    </android.support.constraint.ConstraintLayout>
     </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#fcf8ea"/>
 
 </LinearLayout>

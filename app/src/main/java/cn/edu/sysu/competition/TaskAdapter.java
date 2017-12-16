@@ -3,6 +3,7 @@ package cn.edu.sysu.competition;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,8 +34,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
         TextView taskProcess;
         CircleImageView icon1;
         CircleImageView icon2;
-        RelativeLayout icon_layout;
-        LinearLayout task_layout;
+        ConstraintLayout icon_layout;
+        ConstraintLayout task_layout;
         boolean isSelf;
         boolean isStart;
         int position;
@@ -47,8 +48,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
             taskProcess = (TextView) view.findViewById(R.id.task_process);
             icon1 = (CircleImageView) view.findViewById(R.id.profile_image1);
             icon2 = (CircleImageView) view.findViewById(R.id.profile_image2);
-            icon_layout = (RelativeLayout) view.findViewById(R.id.icon_layout);
-            task_layout = (LinearLayout) view.findViewById(R.id.task_layout);
+            icon_layout = (ConstraintLayout) view.findViewById(R.id.icon_layout);
+            task_layout = (ConstraintLayout) view.findViewById(R.id.task_layout);
             isSelf = true;
         }
     }
@@ -61,9 +62,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.task_item, parent, false);
-        WindowManager windowManager = (WindowManager)parent.getContext().getSystemService(Context.WINDOW_SERVICE);
+        /*WindowManager windowManager = (WindowManager)parent.getContext().getSystemService(Context.WINDOW_SERVICE);
         int width = windowManager.getDefaultDisplay().getWidth();
-        view.setLayoutParams(new RecyclerView.LayoutParams(width, 250));
+        view.setLayoutParams(new RecyclerView.LayoutParams(width, 250));*/
         final ViewHolder holder = new ViewHolder(view);
 
         holder.icon_layout.setOnClickListener(new View.OnClickListener() {
@@ -83,12 +84,12 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
 
                     if (holder.isSelf) {
                         holder.taskTitle.setText(task.getContent(2));
-                        holder.taskDone.setText("已进行" + task.getDone(2) + "天");
-                        holder.taskProcess.setText("完成度" + ((task.getDone(2) * 100) / task.getGoal(2)) + "%");
+                        holder.taskDone.setText("已进行 " + task.getDone(2) + "天");
+                        holder.taskProcess.setText("完成度 " + ((task.getDone(2) * 100) / task.getGoal(2)) + "%");
                     } else {
                         holder.taskTitle.setText(task.getContent(1));
-                        holder.taskDone.setText("已进行" + task.getDone(1) + "天");
-                        holder.taskProcess.setText("完成度" + ((task.getDone(1) * 100) / task.getGoal(1)) + "%");
+                        holder.taskDone.setText("已进行 " + task.getDone(1) + "天");
+                        holder.taskProcess.setText("完成度 " + ((task.getDone(1) * 100) / task.getGoal(1)) + "%");
                     }
 
                     holder.isSelf = !holder.isSelf;
@@ -117,8 +118,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
         Task task = mTaskList.get(position);
         holder.isStart = task.getStatus();
         holder.taskTitle.setText(task.getContent(1));
-        holder.taskDone.setText("已进行" + task.getDone(1) + "天");
-        holder.taskProcess.setText("完成度" + ((task.getDone(1) * 100) / task.getGoal(1)) + "%");
+        holder.taskDone.setText("已进行 " + task.getDone(1) + "天");
+        holder.taskProcess.setText("完成度 " + ((task.getDone(1) * 100) / task.getGoal(1)) + "%");
         holder.icon1.setImageResource(task.getIcon1());
         holder.icon2.setImageResource(task.getIcon2());
     }
